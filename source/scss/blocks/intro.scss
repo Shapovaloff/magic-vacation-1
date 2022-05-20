@@ -34,7 +34,7 @@
   letter-spacing: -0.04em;
 
   @media (min-width: $stop-scaling) {
-    max-width: 990px;
+    max-width: 1010px;
     font-size: 120px;
   }
 
@@ -95,7 +95,7 @@
   line-height: 1.27;
   opacity: 0;
   transform: translateY(1rem);
-  transition: all 0.4s ease-in 0.8s;
+  transition: all 0.4s ease-in 0.4s;
 
   @media (min-width: $stop-scaling) {
     width: 509px;
