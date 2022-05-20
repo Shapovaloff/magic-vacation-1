@@ -55,7 +55,7 @@ export default class FullPageScroll {
   }
 
   changeVisibilityDisplay() {
-    const showTransitionScreen = (this.screenElements[this.prevActiveScreen].id === 'story');
+    const showTransitionScreen = (this.screenElements[this.prevActiveScreen].id === `story`);
 
     if (showTransitionScreen) {
       this.transitionScreen.classList.add(`show`);
@@ -74,12 +74,31 @@ export default class FullPageScroll {
       screen.classList.remove(`active`);
     });
 
+    this.prepareSmilAnimation();
     this.prepareFootnote();
 
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
     setTimeout(() => {
       this.screenElements[this.activeScreen].classList.add(`active`);
     }, 100);
+  }
+
+  prepareSmilAnimation() {
+    if (this.screenElements[this.activeScreen].id === `prizes`) {
+
+      const prize1 = this.screenElements[this.activeScreen].querySelector(`#prize1`);
+
+      if (prize1) {
+        prize1.querySelectorAll(`animate, animateTransform`)
+          .forEach((node) => {
+            node.parentNode.replaceChild(node.cloneNode(), node);
+          });
+
+        if (prize1) {
+          prize1.querySelector(`#prize1Animation`).beginElement();
+        }
+      }
+    }
   }
 
   prepareFootnote() {
@@ -91,7 +110,7 @@ export default class FullPageScroll {
     }
 
     if (!activeScreenFootnote) {
-      prevActiveScreenFootnote.classList.remove(`.footnote--show`);
+      prevActiveScreenFootnote.classList.remove(`footnote--show`);
       return;
     }
 
