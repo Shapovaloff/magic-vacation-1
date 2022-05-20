@@ -86,7 +86,7 @@ export default class FullPageScroll {
   prepareSmilAnimation() {
     if (this.screenElements[this.activeScreen].id === `prizes`) {
 
-      const prizes = this.screenElements[this.activeScreen].querySelectorAll(`#prize1, #prize2`);
+      const prizes = this.screenElements[this.activeScreen].querySelectorAll(`#prize1, #prize2, #prize3`);
 
       prizes.forEach((prize) => {
         prize.querySelectorAll(`animate, animateTransform, animateMotion`)
@@ -105,6 +105,10 @@ export default class FullPageScroll {
               break;
             case `prize2`:
               offset = 2.5;
+              break;
+            case `prize3`:
+              offset = 5;
+              break;
           }
 
           prizeAnimation.beginElementAt(offset);
